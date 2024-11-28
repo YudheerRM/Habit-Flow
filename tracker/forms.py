@@ -6,7 +6,23 @@ from .models import Habit, ProgressLog
 
 class UserRegistrationForm(UserCreationForm):
     """
-    Extended user registration form with additional validations
+    Extended user registration form with enhanced validation and styling.
+
+    This form provides a customized user registration experience with:
+    - Email uniqueness validation
+    - Username and password length requirements
+    - Bootstrap-compatible form styling
+
+    Fields:
+        email (EmailField): User's email address with validation
+        username (CharField): User's desired username with length validation
+        password1 (CharField): User's password
+        password2 (CharField): Password confirmation field
+
+    Validates:
+        - Email uniqueness
+        - Minimum username length (4 characters)
+        - Django's default password strength checks
     """
     email = forms.EmailField(
         required=True,
@@ -50,7 +66,13 @@ class UserRegistrationForm(UserCreationForm):
 
     def clean_email(self):
         """
-        Validate email uniqueness
+        Validate that the email address is unique in the system.
+
+        Raises:
+            ValidationError: If the email is already registered
+
+        Returns:
+            str: Validated email address
         """
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
@@ -59,7 +81,15 @@ class UserRegistrationForm(UserCreationForm):
 
 class CustomLoginForm(AuthenticationForm):
     """
-    Form for logging users in
+    Customized login form with improved styling.
+
+    Provides a tailored authentication experience with:
+    - Bootstrap-compatible form styling
+    - Standard Django authentication mechanism
+
+    Fields:
+        username (CharField): User's username for login
+        password (CharField): User's password for authentication
     """
     username = forms.CharField(
         widget=forms.TextInput(attrs={
@@ -78,7 +108,23 @@ class CustomLoginForm(AuthenticationForm):
 
 class HabitForm(forms.ModelForm):
     """
-    Form for creating and editing habits
+    ModelForm for creating and editing Habit instances.
+
+    Provides a user-friendly interface for habit creation with:
+    - Styled form fields
+    - Validation based on Habit model constraints
+    - Bootstrap-compatible form widgets
+
+    Managed Fields:
+        name (str): Name of the habit
+        description (str, optional): Detailed description of the habit
+        frequency (str): Frequency of habit performance
+        difficulty (str): Subjective difficulty level of the habit
+
+    Widgets:
+        - Text input for name with placeholder
+        - Textarea for description
+        - Select dropdowns for frequency and difficulty
     """
     class Meta:
         model = Habit
@@ -111,7 +157,22 @@ class HabitForm(forms.ModelForm):
 
 class ProgressLogForm(forms.ModelForm):
     """
-    Form for logging habit progress
+    ModelForm for logging progress of a specific habit.
+
+    Enables users to record detailed information about habit performance:
+    - Status of habit completion
+    - Optional notes
+    - Optional time spent on the habit
+
+    Managed Fields:
+        status (str): Completion status (completed/skipped/missed)
+        notes (str, optional): Additional context about habit performance
+        duration_minutes (int, optional): Time invested in the habit
+
+    Widgets:
+        - Select dropdown for status
+        - Textarea for notes
+        - Number input for duration
     """
     class Meta:
         model = ProgressLog
