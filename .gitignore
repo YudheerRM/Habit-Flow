@@ -1,0 +1,38 @@
+# Python cache files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+# Django specific
+db.sqlite3
+media/
+staticfiles/
+
+# Docker specific
+*.log
+docker-compose.override.yml
+
+# Environment variables
+*.env
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# MacOS and Linux
+.DS_Store
+*.bak
+*.orig
+*.old
