@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Welcome, {{ user.username }}!</h1>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h3 class="card-title mb-0">My Habits</h3>
+                            <a href="{% url 'create_habit' %}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-plus"></i> Add
+                            </a>
+                        </div>
+    
+                        <div class="card-body">
+                            {% if habits %}
+                                <div class="list-group">
+                                    {% for habit in habits %}
+                                        <a href="{% url 'log_habit_progress' habit.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                            {{ habit.name }}
+                                            <span class="badge bg-primary rounded-pill">
+                                                {{ habit.progress_set.count }} logs
+                                            </span>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <p class="text-muted">No habits tracked yet.</p>
+                                <a href="{% url 'create_habit' %}" class="btn btn-primary">Create First Habit</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">Recent Progress</h3>
+                        </div>
+                        <div class="card-body">
+                            {% if recent_logs %}
+                                <div class="list-group">
+                                    {% for log in recent_logs %}
+                                        <div class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">{{ log.habit.name }}</h5>
+                                                <small class="text-muted">{{ log.date|date:"F d, Y" }}</small>
+                                            </div>
+                                            <p class="mb-1">{{ log.notes|default:"No additional notes" }}</p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <p class="text-muted">No recent progress logs.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

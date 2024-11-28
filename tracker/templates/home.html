@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}HabitFlow - Transform Your Life{% endblock %}
+
+{% block content %}
+<div class="row align-items-center g-5 py-5">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Transform Your Life with HabitFlow</h1>
+        <p class="lead mb-4">Build lasting habits, track your progress, and achieve your goals with our intuitive habit tracking system. Start your journey to self-improvement today.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            {% if user.is_authenticated %}
+                <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg px-4 me-md-2">Go to Dashboard</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="btn btn-primary btn-lg px-4 me-md-2">Get Started</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg px-4">Login</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Track Progress</h3>
+                <p>Visualize your habit formation journey with detailed analytics and insights.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bell feature-icon"></i>
+                <h3>Daily Reminders</h3>
+                <p>Never miss a habit with customizable notifications and reminders.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users feature-icon"></i>
+                <h3>Community Support</h3>
+                <p>Connect with others on similar journeys and share your success stories.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-medal feature-icon"></i>
+                <h3>Achievement System</h3>
+                <p>Earn badges and celebrate milestones as you build better habits.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
