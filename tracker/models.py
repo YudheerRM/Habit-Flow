@@ -9,7 +9,27 @@ from datetime import timedelta
 
 class Habit(models.Model):
     """
-    Model representing a user's habit to track
+    Represents a habit that a user wants to track and maintain.
+
+    This model allows users to define and monitor their personal habits, 
+    including frequency, difficulty level, and tracking progress.
+
+    Attributes:
+        FREQUENCY_CHOICES (list): Predefined choices for habit tracking frequency.
+        DIFFICULTY_LEVELS (list): Predefined difficulty levels for habits.
+        user (ForeignKey): The user who owns the habit.
+        name (CharField): The name of the habit, with length constraints.
+        description (TextField, optional): Additional details about the habit.
+        frequency (CharField): How often the habit should be performed.
+        difficulty (CharField): Subjective difficulty level of the habit.
+        start_date (DateField): The date the user began tracking the habit.
+        is_active (BooleanField): Whether the habit is currently being tracked.
+        created_at (DateTimeField): Timestamp of habit creation.
+        updated_at (DateTimeField): Timestamp of last update.
+
+    Meta:
+        - Ensures unique habit names per user
+        - Orders habits by creation date (most recent first)
     """
     FREQUENCY_CHOICES = [
         ('daily', 'Daily'),
@@ -74,7 +94,17 @@ class Habit(models.Model):
 
     def calculate_current_streak(self):
         """
-        Calculate the current streak for the habit (Future implementation)
+        Calculate the current consecutive days the habit has been completed.
+
+        This method examines the habit's progress logs to determine the current 
+        streak by counting consecutive completed days from today backward.
+
+        Returns:
+            int: Number of consecutive days the habit has been completed.
+        
+        Note:
+            - Assumes completed logs are ordered from most recent to oldest
+            - Stops counting streak when a non-consecutive day is encountered
         """
         completed_logs = self.progress_set.filter(
             status=ProgressLog.STATUS_CHOICES[0][0]  # Completed
@@ -93,8 +123,19 @@ class Habit(models.Model):
 
     def calculate_completion_percentage(self, days=30):
         """
-        Calculate habit completion percentage for given period (Future 
-        implementation)
+        Calculate the percentage of habit completion for a given time period.
+
+        Args:
+            days (int, optional): Number of days to calculate completion over. 
+                                  Defaults to 30 days.
+
+        Returns:
+            float: Percentage of habit completion (0-100).
+                   Returns 0 if no logs exist in the specified period.
+
+        Note:
+            - Considers only logs within the specified date range
+            - Calculates based on completed vs. total logs
         """
         end_date = timezone.now().date()
         start_date = end_date - timedelta(days=days)
@@ -112,7 +153,22 @@ class Habit(models.Model):
 
 class ProgressLog(models.Model):
     """
-    Model to track daily progress for each habit
+    Tracks daily progress for individual habits.
+
+    This model allows logging the status of a habit on a specific date, 
+    including completion status, optional notes, and time spent.
+
+    Attributes:
+        STATUS_CHOICES (list): Predefined status options for habit tracking.
+        habit (ForeignKey): The habit being logged.
+        date (DateField): The date of the log entry.
+        status (CharField): Current status of the habit (completed/skipped/missed).
+        notes (TextField, optional): Additional comments about the habit performance.
+        duration_minutes (PositiveIntegerField, optional): Time spent on the habit.
+
+    Meta:
+        - Ensures unique log per habit per date
+        - Orders logs by most recent date
     """
     STATUS_CHOICES = [
         ('completed', 'Completed'),
@@ -149,12 +205,35 @@ class ProgressLog(models.Model):
         verbose_name_plural = 'Progress Logs'
 
     def __str__(self):
+        """
+        String representation of the ProgressLog instance.
+
+        Returns:
+            str: A string combining habit name, date, and status.
+        """
         return f"{self.habit.name} - {self.date} - {self.status}"
 
     @classmethod
     def log_progress(cls, habit, status, date=None, notes=None, duration=None):
         """
-        Convenience method to log habit progress
+        Convenience method to create or update a habit progress log.
+
+        This method allows easy logging of habit progress, either creating 
+        a new log or updating an existing one for a specific date.
+
+        Args:
+            habit (Habit): The habit being logged.
+            status (str): Status of the habit (completed/skipped/missed).
+            date (date, optional): Date of the log. Defaults to current date.
+            notes (str, optional): Additional notes about the habit performance.
+            duration (int, optional): Time spent on the habit in minutes.
+
+        Returns:
+            ProgressLog: The created or updated progress log instance.
+
+        Note:
+            - If a log for the given habit and date exists, it will be updated
+            - If no log exists, a new one will be created
         """
         if date is None:
             date = timezone.now().date()
