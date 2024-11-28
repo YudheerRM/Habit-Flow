@@ -1,0 +1,1309 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tracker package &mdash; Habit Flow 28.11.2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c4899943"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tracker.migrations package" href="tracker.migrations.html" />
+    <link rel="prev" title="tracker" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Habit Flow
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">tracker</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tracker package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tracker.migrations.html">tracker.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.admin">tracker.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.apps">tracker.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.apps.TrackerConfig"><code class="docutils literal notranslate"><span class="pre">TrackerConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.forms">tracker.forms module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.forms.CustomLoginForm"><code class="docutils literal notranslate"><span class="pre">CustomLoginForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.forms.HabitForm"><code class="docutils literal notranslate"><span class="pre">HabitForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.forms.ProgressLogForm"><code class="docutils literal notranslate"><span class="pre">ProgressLogForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.forms.UserRegistrationForm"><code class="docutils literal notranslate"><span class="pre">UserRegistrationForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.models">tracker.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.models.Habit"><code class="docutils literal notranslate"><span class="pre">Habit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.models.ProgressLog"><code class="docutils literal notranslate"><span class="pre">ProgressLog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.tests">tracker.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.urls">tracker.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker.views">tracker.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.create_habit"><code class="docutils literal notranslate"><span class="pre">create_habit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.dashboard_view"><code class="docutils literal notranslate"><span class="pre">dashboard_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.delete_habit"><code class="docutils literal notranslate"><span class="pre">delete_habit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.edit_habit"><code class="docutils literal notranslate"><span class="pre">edit_habit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.log_habit_progress"><code class="docutils literal notranslate"><span class="pre">log_habit_progress()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.login_view"><code class="docutils literal notranslate"><span class="pre">login_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tracker.views.register_view"><code class="docutils literal notranslate"><span class="pre">register_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tracker">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Habit Flow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">tracker</a></li>
+      <li class="breadcrumb-item active">tracker package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tracker.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tracker-package">
+<h1>tracker package<a class="headerlink" href="#tracker-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tracker.migrations.html">tracker.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tracker.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tracker.migrations.html#module-tracker.migrations.0001_initial">tracker.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tracker.migrations.html#module-tracker.migrations.0002_remove_habit_target_days_per_week">tracker.migrations.0002_remove_habit_target_days_per_week module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0002_remove_habit_target_days_per_week.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0002_remove_habit_target_days_per_week.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracker.migrations.html#tracker.migrations.0002_remove_habit_target_days_per_week.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tracker.migrations.html#module-tracker.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-tracker.admin">
+<span id="tracker-admin-module"></span><h2>tracker.admin module<a class="headerlink" href="#module-tracker.admin" title="Link to this heading"></a></h2>
+</section>
+<section id="module-tracker.apps">
+<span id="tracker-apps-module"></span><h2>tracker.apps module<a class="headerlink" href="#module-tracker.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.apps.TrackerConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.apps.</span></span><span class="sig-name descname"><span class="pre">TrackerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/apps.html#TrackerConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.apps.TrackerConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.apps.TrackerConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#tracker.apps.TrackerConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.apps.TrackerConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tracker'</span></em><a class="headerlink" href="#tracker.apps.TrackerConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tracker.forms">
+<span id="tracker-forms-module"></span><h2>tracker.forms module<a class="headerlink" href="#module-tracker.forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.CustomLoginForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.forms.</span></span><span class="sig-name descname"><span class="pre">CustomLoginForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/forms.html#CustomLoginForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.CustomLoginForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AuthenticationForm</span></code></p>
+<p>Customized login form with improved styling.</p>
+<p>Provides a tailored authentication experience with:
+- Bootstrap-compatible form styling
+- Standard Django authentication mechanism</p>
+<dl class="simple">
+<dt>Fields:</dt><dd><p>username (CharField): User’s username for login
+password (CharField): User’s password for authentication</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.CustomLoginForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.CustomLoginForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.CustomLoginForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.CustomLoginForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tracker.forms.CustomLoginForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#tracker.forms.CustomLoginForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.forms.</span></span><span class="sig-name descname"><span class="pre">HabitForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/forms.html#HabitForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.HabitForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>ModelForm for creating and editing Habit instances.</p>
+<p>Provides a user-friendly interface for habit creation with:
+- Styled form fields
+- Validation based on Habit model constraints
+- Bootstrap-compatible form widgets</p>
+<dl class="simple">
+<dt>Managed Fields:</dt><dd><p>name (str): Name of the habit
+description (str, optional): Detailed description of the habit
+frequency (str): Frequency of habit performance
+difficulty (str): Subjective difficulty level of the habit</p>
+</dd>
+<dt>Widgets:</dt><dd><ul class="simple">
+<li><p>Text input for name with placeholder</p></li>
+<li><p>Textarea for description</p></li>
+<li><p>Select dropdowns for frequency and difficulty</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/tracker/forms.html#HabitForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.HabitForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'description',</span> <span class="pre">'frequency',</span> <span class="pre">'difficulty']</span></em><a class="headerlink" href="#tracker.forms.HabitForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#tracker.forms.HabitForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#tracker.models.Habit" title="tracker.models.Habit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Habit</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">&lt;django.forms.widgets.Textarea</span> <span class="pre">object&gt;,</span> <span class="pre">'difficulty':</span> <span class="pre">&lt;django.forms.widgets.Select</span> <span class="pre">object&gt;,</span> <span class="pre">'frequency':</span> <span class="pre">&lt;django.forms.widgets.Select</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.widgets.TextInput</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.HabitForm.Meta.widgets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'difficulty':</span> <span class="pre">&lt;django.forms.fields.TypedChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'frequency':</span> <span class="pre">&lt;django.forms.fields.TypedChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.HabitForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#tracker.forms.HabitForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tracker.forms.HabitForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#tracker.forms.HabitForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.forms.</span></span><span class="sig-name descname"><span class="pre">ProgressLogForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/forms.html#ProgressLogForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.ProgressLogForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>ModelForm for logging progress of a specific habit.</p>
+<p>Enables users to record detailed information about habit performance:
+- Status of habit completion
+- Optional notes
+- Optional time spent on the habit</p>
+<dl class="simple">
+<dt>Managed Fields:</dt><dd><p>status (str): Completion status (completed/skipped/missed)
+notes (str, optional): Additional context about habit performance
+duration_minutes (int, optional): Time invested in the habit</p>
+</dd>
+<dt>Widgets:</dt><dd><ul class="simple">
+<li><p>Select dropdown for status</p></li>
+<li><p>Textarea for notes</p></li>
+<li><p>Number input for duration</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/tracker/forms.html#ProgressLogForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.ProgressLogForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['status',</span> <span class="pre">'notes',</span> <span class="pre">'duration_minutes']</span></em><a class="headerlink" href="#tracker.forms.ProgressLogForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#tracker.forms.ProgressLogForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#tracker.models.ProgressLog" title="tracker.models.ProgressLog"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProgressLog</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'duration_minutes':</span> <span class="pre">&lt;django.forms.widgets.NumberInput</span> <span class="pre">object&gt;,</span> <span class="pre">'notes':</span> <span class="pre">&lt;django.forms.widgets.Textarea</span> <span class="pre">object&gt;,</span> <span class="pre">'status':</span> <span class="pre">&lt;django.forms.widgets.Select</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.ProgressLogForm.Meta.widgets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'duration_minutes':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'notes':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'status':</span> <span class="pre">&lt;django.forms.fields.TypedChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.ProgressLogForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#tracker.forms.ProgressLogForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tracker.forms.ProgressLogForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#tracker.forms.ProgressLogForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.forms.</span></span><span class="sig-name descname"><span class="pre">UserRegistrationForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/forms.html#UserRegistrationForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.UserRegistrationForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></p>
+<p>Extended user registration form with enhanced validation and styling.</p>
+<p>This form provides a customized user registration experience with:
+- Email uniqueness validation
+- Username and password length requirements
+- Bootstrap-compatible form styling</p>
+<dl class="simple">
+<dt>Fields:</dt><dd><p>email (EmailField): User’s email address with validation
+username (CharField): User’s desired username with length validation
+password1 (CharField): User’s password
+password2 (CharField): Password confirmation field</p>
+</dd>
+<dt>Validates:</dt><dd><ul class="simple">
+<li><p>Email uniqueness</p></li>
+<li><p>Minimum username length (4 characters)</p></li>
+<li><p>Django’s default password strength checks</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/tracker/forms.html#UserRegistrationForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.UserRegistrationForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['username',</span> <span class="pre">'email',</span> <span class="pre">'password1',</span> <span class="pre">'password2']</span></em><a class="headerlink" href="#tracker.forms.UserRegistrationForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#tracker.forms.UserRegistrationForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.UserRegistrationForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.clean_email">
+<span class="sig-name descname"><span class="pre">clean_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/forms.html#UserRegistrationForm.clean_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.forms.UserRegistrationForm.clean_email" title="Link to this definition"></a></dt>
+<dd><p>Validate that the email address is unique in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValidationError</strong> – If the email is already registered</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Validated email address</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#tracker.forms.UserRegistrationForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tracker.forms.UserRegistrationForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#tracker.forms.UserRegistrationForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tracker.models">
+<span id="tracker-models-module"></span><h2>tracker.models module<a class="headerlink" href="#module-tracker.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.models.Habit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.models.</span></span><span class="sig-name descname"><span class="pre">Habit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/models.html#Habit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.models.Habit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a habit that a user wants to track and maintain.</p>
+<p>This model allows users to define and monitor their personal habits,
+including frequency, difficulty level, and tracking progress.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.FREQUENCY_CHOICES">
+<span class="sig-name descname"><span class="pre">FREQUENCY_CHOICES</span></span><a class="headerlink" href="#tracker.models.Habit.FREQUENCY_CHOICES" title="Link to this definition"></a></dt>
+<dd><p>Predefined choices for habit tracking frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.DIFFICULTY_LEVELS">
+<span class="sig-name descname"><span class="pre">DIFFICULTY_LEVELS</span></span><a class="headerlink" href="#tracker.models.Habit.DIFFICULTY_LEVELS" title="Link to this definition"></a></dt>
+<dd><p>Predefined difficulty levels for habits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#tracker.models.Habit.user" title="Link to this definition"></a></dt>
+<dd><p>The user who owns the habit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ForeignKey</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#tracker.models.Habit.name" title="Link to this definition"></a></dt>
+<dd><p>The name of the habit, with length constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CharField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#tracker.models.Habit.description" title="Link to this definition"></a></dt>
+<dd><p>Additional details about the habit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TextField, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.frequency">
+<span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#tracker.models.Habit.frequency" title="Link to this definition"></a></dt>
+<dd><p>How often the habit should be performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CharField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.difficulty">
+<span class="sig-name descname"><span class="pre">difficulty</span></span><a class="headerlink" href="#tracker.models.Habit.difficulty" title="Link to this definition"></a></dt>
+<dd><p>Subjective difficulty level of the habit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CharField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.start_date">
+<span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#tracker.models.Habit.start_date" title="Link to this definition"></a></dt>
+<dd><p>The date the user began tracking the habit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DateField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#tracker.models.Habit.is_active" title="Link to this definition"></a></dt>
+<dd><p>Whether the habit is currently being tracked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BooleanField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#tracker.models.Habit.created_at" title="Link to this definition"></a></dt>
+<dd><p>Timestamp of habit creation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DateTimeField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#tracker.models.Habit.updated_at" title="Link to this definition"></a></dt>
+<dd><p>Timestamp of last update.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DateTimeField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Meta:</dt><dd><ul class="simple">
+<li><p>Ensures unique habit names per user</p></li>
+<li><p>Orders habits by creation date (most recent first)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">DIFFICULTY_LEVELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('easy',</span> <span class="pre">'Easy'),</span> <span class="pre">('medium',</span> <span class="pre">'Medium'),</span> <span class="pre">('hard',</span> <span class="pre">'Hard')]</span></em><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="tracker.models.Habit.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#tracker.models.Habit.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">FREQUENCY_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('daily',</span> <span class="pre">'Daily'),</span> <span class="pre">('weekly',</span> <span class="pre">'Weekly'),</span> <span class="pre">('monthly',</span> <span class="pre">'Monthly'),</span> <span class="pre">('custom',</span> <span class="pre">'Custom')]</span></em><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="tracker.models.Habit.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#tracker.models.Habit.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.calculate_completion_percentage">
+<span class="sig-name descname"><span class="pre">calculate_completion_percentage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/models.html#Habit.calculate_completion_percentage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.models.Habit.calculate_completion_percentage" title="Link to this definition"></a></dt>
+<dd><p>Calculate the percentage of habit completion for a given time period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>days</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of days to calculate completion over.
+Defaults to 30 days.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Percentage of habit completion (0-100).</dt><dd><p>Returns 0 if no logs exist in the specified period.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Considers only logs within the specified date range</p></li>
+<li><p>Calculates based on completed vs. total logs</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.calculate_current_streak">
+<span class="sig-name descname"><span class="pre">calculate_current_streak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/models.html#Habit.calculate_current_streak"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.models.Habit.calculate_current_streak" title="Link to this definition"></a></dt>
+<dd><p>Calculate the current consecutive days the habit has been completed.</p>
+<p>This method examines the habit’s progress logs to determine the current
+streak by counting consecutive completed days from today backward.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of consecutive days the habit has been completed.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Assumes completed logs are ordered from most recent to oldest</p></li>
+<li><p>Stops counting streak when a non-consecutive day is encountered</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">difficulty</span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_difficulty_display">
+<span class="sig-name descname"><span class="pre">get_difficulty_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">difficulty&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_difficulty_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_frequency_display">
+<span class="sig-name descname"><span class="pre">get_frequency_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">frequency&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_frequency_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_next_by_start_date">
+<span class="sig-name descname"><span class="pre">get_next_by_start_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">start_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_next_by_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_next_by_updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_previous_by_start_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_start_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">start_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_previous_by_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.Habit.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.Habit.get_previous_by_updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#tracker.models.Habit.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#tracker.models.Habit.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.progress_set">
+<span class="sig-name descname"><span class="pre">progress_set</span></span><a class="headerlink" href="#tracker.models.Habit.progress_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.Habit.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#tracker.models.Habit.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tracker.models.</span></span><span class="sig-name descname"><span class="pre">ProgressLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/models.html#ProgressLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.models.ProgressLog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Tracks daily progress for individual habits.</p>
+<p>This model allows logging the status of a habit on a specific date,
+including completion status, optional notes, and time spent.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.STATUS_CHOICES">
+<span class="sig-name descname"><span class="pre">STATUS_CHOICES</span></span><a class="headerlink" href="#tracker.models.ProgressLog.STATUS_CHOICES" title="Link to this definition"></a></dt>
+<dd><p>Predefined status options for habit tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.habit">
+<span class="sig-name descname"><span class="pre">habit</span></span><a class="headerlink" href="#tracker.models.ProgressLog.habit" title="Link to this definition"></a></dt>
+<dd><p>The habit being logged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ForeignKey</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.date">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#tracker.models.ProgressLog.date" title="Link to this definition"></a></dt>
+<dd><p>The date of the log entry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DateField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#tracker.models.ProgressLog.status" title="Link to this definition"></a></dt>
+<dd><p>Current status of the habit (completed/skipped/missed).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CharField</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.notes">
+<span class="sig-name descname"><span class="pre">notes</span></span><a class="headerlink" href="#tracker.models.ProgressLog.notes" title="Link to this definition"></a></dt>
+<dd><p>Additional comments about the habit performance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TextField, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.duration_minutes">
+<span class="sig-name descname"><span class="pre">duration_minutes</span></span><a class="headerlink" href="#tracker.models.ProgressLog.duration_minutes" title="Link to this definition"></a></dt>
+<dd><p>Time spent on the habit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PositiveIntegerField, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Meta:</dt><dd><ul class="simple">
+<li><p>Ensures unique log per habit per date</p></li>
+<li><p>Orders logs by most recent date</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#tracker.models.ProgressLog.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#tracker.models.ProgressLog.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">STATUS_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('completed',</span> <span class="pre">'Completed'),</span> <span class="pre">('skipped',</span> <span class="pre">'Skipped'),</span> <span class="pre">('missed',</span> <span class="pre">'Missed')]</span></em><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">duration_minutes</span></span><a class="headerlink" href="#id13" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.get_next_by_date">
+<span class="sig-name descname"><span class="pre">get_next_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.ProgressLog.get_next_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.get_previous_by_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.ProgressLog.get_previous_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.get_status_display">
+<span class="sig-name descname"><span class="pre">get_status_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">status&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tracker.models.ProgressLog.get_status_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">habit</span></span><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.habit_id">
+<span class="sig-name descname"><span class="pre">habit_id</span></span><a class="headerlink" href="#tracker.models.ProgressLog.habit_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#tracker.models.ProgressLog.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.log_progress">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">habit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/models.html#ProgressLog.log_progress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.models.ProgressLog.log_progress" title="Link to this definition"></a></dt>
+<dd><p>Convenience method to create or update a habit progress log.</p>
+<p>This method allows easy logging of habit progress, either creating
+a new log or updating an existing one for a specific date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>habit</strong> (<a class="reference internal" href="#tracker.models.Habit" title="tracker.models.Habit"><em>Habit</em></a>) – The habit being logged.</p></li>
+<li><p><strong>status</strong> (<em>str</em>) – Status of the habit (completed/skipped/missed).</p></li>
+<li><p><strong>date</strong> (<em>date</em><em>, </em><em>optional</em>) – Date of the log. Defaults to current date.</p></li>
+<li><p><strong>notes</strong> (<em>str</em><em>, </em><em>optional</em>) – Additional notes about the habit performance.</p></li>
+<li><p><strong>duration</strong> (<em>int</em><em>, </em><em>optional</em>) – Time spent on the habit in minutes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created or updated progress log instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tracker.models.ProgressLog" title="tracker.models.ProgressLog">ProgressLog</a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If a log for the given habit and date exists, it will be updated</p></li>
+<li><p>If no log exists, a new one will be created</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">notes</span></span><a class="headerlink" href="#id15" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tracker.models.ProgressLog.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#tracker.models.ProgressLog.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-tracker.tests">
+<span id="tracker-tests-module"></span><h2>tracker.tests module<a class="headerlink" href="#module-tracker.tests" title="Link to this heading"></a></h2>
+</section>
+<section id="module-tracker.urls">
+<span id="tracker-urls-module"></span><h2>tracker.urls module<a class="headerlink" href="#module-tracker.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-tracker.views">
+<span id="tracker-views-module"></span><h2>tracker.views module<a class="headerlink" href="#module-tracker.views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.create_habit">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">create_habit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#create_habit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.create_habit" title="Link to this definition"></a></dt>
+<dd><p>Provide a view for creating new habits.</p>
+<p>This view allows authenticated users to create a new habit. For POST
+requests, it validates the habit form and saves a new Habit instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Renders ‘habit_form.html’ with habit creation form</p></li>
+<li><p>Redirects to ‘dashboard’ upon successful habit creation</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Requires:</dt><dd><ul class="simple">
+<li><p>User authentication</p></li>
+</ul>
+</dd>
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Associates new habit with the current user</p></li>
+<li><p>Displays success message on habit creation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.dashboard_view">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">dashboard_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#dashboard_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.dashboard_view" title="Link to this definition"></a></dt>
+<dd><p>Render the user’s personal dashboard.</p>
+<p>This view is only accessible to authenticated users. It retrieves
+and displays the user’s habits and recent progress logs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Renders ‘authentication/dashboard.html’ with user’s habits</dt><dd><p>and recent progress logs.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Requires:</dt><dd><ul class="simple">
+<li><p>User authentication</p></li>
+</ul>
+</dd>
+<dt>Context Variables:</dt><dd><ul class="simple">
+<li><p>habits: QuerySet of Habit objects owned by the current user</p></li>
+<li><p>recent_logs: Last 5 ProgressLog entries for the user’s habits</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.delete_habit">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">delete_habit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">habit_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#delete_habit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.delete_habit" title="Link to this definition"></a></dt>
+<dd><p>Provide a view for deleting a specific habit.</p>
+<p>This view allows authenticated users to delete one of their habits.
+It requires a POST request to confirm the deletion and ensures the
+habit belongs to the current user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p></li>
+<li><p><strong>habit_id</strong> (<em>int</em>) – The primary key of the habit to be deleted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Renders ‘habit_confirm_delete.html’ for confirmation</p></li>
+<li><p>Redirects to ‘dashboard’ after successful deletion</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Http404</strong> – If the habit does not exist or does not belong to the user</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Requires:</dt><dd><ul class="simple">
+<li><p>User authentication</p></li>
+</ul>
+</dd>
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Displays confirmation page on GET request</p></li>
+<li><p>Deletes habit and redirects on POST request</p></li>
+<li><p>Displays success message after deletion</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.edit_habit">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">edit_habit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">habit_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#edit_habit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.edit_habit" title="Link to this definition"></a></dt>
+<dd><p>Provide a view for editing an existing habit.</p>
+<p>This view allows authenticated users to modify details of a specific habit.
+It ensures the habit belongs to the current user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p></li>
+<li><p><strong>habit_id</strong> (<em>int</em>) – The primary key of the habit to be edited.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Renders ‘habit_form.html’ with habit edit form</p></li>
+<li><p>Redirects to ‘dashboard’ upon successful habit update</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Http404</strong> – If the habit does not exist or does not belong to the user</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Requires:</dt><dd><ul class="simple">
+<li><p>User authentication</p></li>
+</ul>
+</dd>
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Populates form with existing habit details</p></li>
+<li><p>Displays success message on habit update</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.home">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.home" title="Link to this definition"></a></dt>
+<dd><p>Render the home page of the application.</p>
+<p>This view serves as the landing page for the HabitFlow application.
+It is accessible to all users, including unauthenticated visitors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Renders the ‘home.html’ template.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.log_habit_progress">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">log_habit_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">habit_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#log_habit_progress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.log_habit_progress" title="Link to this definition"></a></dt>
+<dd><p>Provide a view for logging progress on a specific habit.</p>
+<p>This view allows authenticated users to log their progress for a particular
+habit. It supports creating new progress logs and updating existing logs
+for the same habit and date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p></li>
+<li><p><strong>habit_id</strong> (<em>int</em>) – The primary key of the habit to log progress for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Renders ‘progress_log_form.html’ with progress logging form</p></li>
+<li><p>Redirects to ‘dashboard’ upon successful progress log</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Http404</strong> – If the habit does not exist or does not belong to the user</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Requires:</dt><dd><ul class="simple">
+<li><p>User authentication</p></li>
+</ul>
+</dd>
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Checks for existing progress log on the same date</p></li>
+<li><p>Updates existing log or creates a new log</p></li>
+<li><p>Displays success message after logging progress</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.login_view">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">login_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#login_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.login_view" title="Link to this definition"></a></dt>
+<dd><p>Handle user login authentication.</p>
+<p>This view manages the login process for existing users. If the user is
+already authenticated, they are redirected to the dashboard. For POST
+requests, it validates credentials and logs in the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Renders ‘authentication/login.html’ with login form</p></li>
+<li><p>Redirects to ‘dashboard’ upon successful authentication</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Redirects authenticated users to dashboard</p></li>
+<li><p>Authenticates users with valid credentials</p></li>
+<li><p>Displays error messages for invalid login attempts</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.logout_view">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">logout_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#logout_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.logout_view" title="Link to this definition"></a></dt>
+<dd><p>Handle user logout and session termination.</p>
+<p>This view logs out the current user and redirects them to the home page.
+It also displays a farewell message with the user’s username.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirects to ‘home’ page after logging out the user.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Terminates the current user’s session</p></li>
+<li><p>Displays a logout confirmation message</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tracker.views.register_view">
+<span class="sig-prename descclassname"><span class="pre">tracker.views.</span></span><span class="sig-name descname"><span class="pre">register_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tracker/views.html#register_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tracker.views.register_view" title="Link to this definition"></a></dt>
+<dd><p>Handle user registration for new accounts.</p>
+<p>This view manages the user registration process. If the user is already
+authenticated, they are redirected to the dashboard. For POST requests,
+it validates the registration form and creates a new user account.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Renders ‘authentication/register.html’ with registration form</p></li>
+<li><p>Redirects to ‘dashboard’ upon successful registration</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Behaviors:</dt><dd><ul class="simple">
+<li><p>Redirects authenticated users to dashboard</p></li>
+<li><p>Creates user account on valid form submission</p></li>
+<li><p>Displays form errors on invalid input</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-tracker">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tracker" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="tracker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tracker.migrations.html" class="btn btn-neutral float-right" title="tracker.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Yudheer Maharaj.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
